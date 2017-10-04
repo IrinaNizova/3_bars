@@ -1,7 +1,13 @@
 # Ближайшие бары
 Программа выводит самый большой бар и самый маленький бар,
 затем запрашивает данные о координатах пользователя и выводит самый близкий к нему бар.
-Данные о барах берутся из файла bars.json
+
+Данные о барах можно получить так:
+
+Зарегистрироваться на сайте data.mos.ru и получить ключ API;
+скачать файл по ссылке вида https://apidata.mos.ru/v1/features/1796?api_key={place_your_API_key_here}.
+А можно скачать файл с данными по ссылке
+https://devman.org/media/filer_public/95/74/957441dc-78df-4c99-83b2-e93dfd13c2fa/bars.json
 
 # Как запустить
 
@@ -11,7 +17,7 @@
 
 ```#!bash
 
-$ python bars.py # possibly requires call of python3 executive instead of just python
+$ python bars.py [путь до файла с данными] # possibly requires call of python3 executive instead of just python
 # Пример ответа
 
 ```
