@@ -15,12 +15,12 @@ $ python bars.py # possibly requires call of python3 executive instead of just p
 # Пример ответа
 
 ```
-Biggest bar is Спорт бар «Красная машина» which has 450 seats
-Smallest bar is БАР. СОКИ which has 0 seats
-If you want to find closest bar, input your coordinates
-input longitude: 37.383
-input latitude: 55.844
-Closest bar is Соки
+Самый большой бар Спорт бар «Красная машина» включает 450 посадочных мест
+Самый маленький бар БАР. СОКИ включает 0 посадочных мест
+Вы можете ввести свои координаты чтобы найти ближайший бар
+Введине долготу: 37.3
+Введите широту: 55.8
+Ближайший бар это БАР. СОКИ
 ```
 
 Запуск на Windows происходит аналогично.
