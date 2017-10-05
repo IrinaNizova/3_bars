@@ -17,10 +17,10 @@ https://devman.org/media/filer_public/95/74/957441dc-78df-4c99-83b2-e93dfd13c2fa
 
 ```#!bash
 
-$ python bars.py [путь до файла с данными] # possibly requires call of python3 executive instead of just python
+$ python bars.py [путь до файла с данными] ```
 # Пример ответа
 
-```
+
 Самый большой бар Спорт бар «Красная машина» включает 450 посадочных мест
 Самый маленький бар БАР. СОКИ включает 0 посадочных мест
 Вы можете ввести свои координаты чтобы найти ближайший бар

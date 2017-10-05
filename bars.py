@@ -3,9 +3,10 @@ import math
 import argparse
 
 
-def load_data(filepath):
-    with open(filepath) as bars_info:
+def load_data(file_path):
+    with open(file_path) as bars_info:
         return json.loads(bars_info.read())
+
 
 def get_biggest_bar(bars_list):
     return max(bars_list, key=lambda p: p["properties"]["Attributes"]["SeatsCount"])
@@ -15,14 +16,14 @@ def get_smallest_bar(bars_list):
     return min(bars_list, key=lambda p: p["properties"]["Attributes"]["SeatsCount"])
 
 
-def get_closest_bar(bars_list, longitude, latitude):
+def get_closest_bar(bars_list, lon, lat):
     coords = [(bar["geometry"]["coordinates"],
                bar["properties"]["Attributes"]["Name"])
               for bar in bars_list]
     distances = []
     for coord in coords:
-        distance = math.sqrt((float(coord[0][0]) - longitude) ** 2
-                             + (float(coord[0][1]) - latitude) ** 2)
+        distance = math.sqrt((float(coord[0][0]) - lon) ** 2
+                             + (float(coord[0][1]) - lat) ** 2)
         distances.append((distance, coord[1]))
     return min(distances)[1]
 
