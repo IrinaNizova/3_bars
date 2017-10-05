@@ -33,10 +33,12 @@ if __name__ == '__main__':
     bars_list = load_data(parser.parse_args().file_name)["features"]
     biggest_bar_info = get_biggest_bar(bars_list)
     print('Самый большой бар {} включает {} посадочных мест'
-          .format(biggest_bar_info["properties"]["Attributes"]["Name"], biggest_bar_info["properties"]["Attributes"]["SeatsCount"]))
+          .format(biggest_bar_info["properties"]["Attributes"]["Name"], 
+                  biggest_bar_info["properties"]["Attributes"]["SeatsCount"]))
     smallest_bar_info = get_smallest_bar(bars_list)
     print('Самый маленький бар {} включает {} посадочных мест'
-          .format(smallest_bar_info["properties"]["Attributes"]["Name"], smallest_bar_info["properties"]["Attributes"]["SeatsCount"]))
+          .format(smallest_bar_info["properties"]["Attributes"]["Name"], 
+                  smallest_bar_info["properties"]["Attributes"]["SeatsCount"]))
     print('Вы можете ввести свои координаты чтобы найти ближайший бар')
     longitude = float(input('Введине долготу: '))
     latitude = float(input('Введите широту: '))
