@@ -7,23 +7,18 @@ def load_data(filepath):
     with open(filepath) as bars_info:
         return json.loads(bars_info.read())
 
-
-def get_biggest_bar(bars_data):
-    return max([(bar_data["properties"]["Attributes"]["SeatsCount"],
-                 bar_data["properties"]["Attributes"]["Name"])
-                for bar_data in bars_data], key=lambda p: p[0])
+def get_biggest_bar(bars_list):
+    return max(bars_list, key=lambda p: p["properties"]["Attributes"]["SeatsCount"])
 
 
-def get_smallest_bar(bars_data):
-    return min([(bar_data["properties"]["Attributes"]["SeatsCount"],
-                 bar_data["properties"]["Attributes"]["Name"])
-                for bar_data in bars_data], key=lambda p: p[0])
+def get_smallest_bar(bars_list):
+    return min(bars_list, key=lambda p: p["properties"]["Attributes"]["SeatsCount"])
 
 
-def get_closest_bar(bars_data, longitude, latitude):
-    coords = [(bar_data["geometry"]["coordinates"],
-               bar_data["properties"]["Attributes"]["Name"])
-              for bar_data in bars_data]
+def get_closest_bar(bars_list, longitude, latitude):
+    coords = [(bar["geometry"]["coordinates"],
+               bar["properties"]["Attributes"]["Name"])
+              for bar in bars_list]
     distances = []
     for coord in coords:
         distance = math.sqrt((float(coord[0][0]) - longitude) ** 2
@@ -38,10 +33,10 @@ if __name__ == '__main__':
     bars_list = load_data(parser.parse_args().file_name)["features"]
     biggest_bar_info = get_biggest_bar(bars_list)
     print('Самый большой бар {} включает {} посадочных мест'
-          .format(biggest_bar_info[1], biggest_bar_info[0]))
+          .format(biggest_bar_info["properties"]["Attributes"]["Name"], biggest_bar_info["properties"]["Attributes"]["SeatsCount"]))
     smallest_bar_info = get_smallest_bar(bars_list)
     print('Самый маленький бар {} включает {} посадочных мест'
-          .format(smallest_bar_info[1], smallest_bar_info[0]))
+          .format(smallest_bar_info["properties"]["Attributes"]["Name"], smallest_bar_info["properties"]["Attributes"]["SeatsCount"]))
     print('Вы можете ввести свои координаты чтобы найти ближайший бар')
     longitude = float(input('Введине долготу: '))
     latitude = float(input('Введите широту: '))
