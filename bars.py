@@ -22,8 +22,8 @@ def get_closest_bar(bars_list, lon, lat):
               for bar in bars_list]
     distances = []
     for coord in coords:
-        distance = math.sqrt((float(coord[0][0]) - lon) ** 2
-                             + (float(coord[0][1]) - lat) ** 2)
+        distance = math.sqrt((float(coord[0][0]) - lon) ** 2 +
+                             (float(coord[0][1]) - lat) ** 2)
         distances.append((distance, coord[1]))
     return min(distances)[1]
 
@@ -34,11 +34,11 @@ if __name__ == '__main__':
     bars_list = load_data(parser.parse_args().file_name)["features"]
     biggest_bar_info = get_biggest_bar(bars_list)
     print('Самый большой бар {} включает {} посадочных мест'
-          .format(biggest_bar_info["properties"]["Attributes"]["Name"], 
+          .format(biggest_bar_info["properties"]["Attributes"]["Name"],
                   biggest_bar_info["properties"]["Attributes"]["SeatsCount"]))
     smallest_bar_info = get_smallest_bar(bars_list)
     print('Самый маленький бар {} включает {} посадочных мест'
-          .format(smallest_bar_info["properties"]["Attributes"]["Name"], 
+          .format(smallest_bar_info["properties"]["Attributes"]["Name"],
                   smallest_bar_info["properties"]["Attributes"]["SeatsCount"]))
     print('Вы можете ввести свои координаты чтобы найти ближайший бар')
     longitude = float(input('Введине долготу: '))
