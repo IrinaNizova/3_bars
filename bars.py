@@ -9,11 +9,13 @@ def load_data(file_path):
 
 
 def get_biggest_bar(bars_list):
-    return max(bars_list, key=lambda p: p["properties"]["Attributes"]["SeatsCount"])
+    return max(bars_list,
+               key=lambda p: p["properties"]["Attributes"]["SeatsCount"])
 
 
 def get_smallest_bar(bars_list):
-    return min(bars_list, key=lambda p: p["properties"]["Attributes"]["SeatsCount"])
+    return min(bars_list,
+               key=lambda p: p["properties"]["Attributes"]["SeatsCount"])
 
 
 def get_closest_bar(bars_list, lon, lat):
@@ -43,4 +45,5 @@ if __name__ == '__main__':
     print('Вы можете ввести свои координаты чтобы найти ближайший бар')
     longitude = float(input('Введине долготу: '))
     latitude = float(input('Введите широту: '))
-    print('Ближайший бар это {}'.format(get_closest_bar(bars_list, longitude, latitude)))
+    print('Ближайший бар это {}'.format
+          (get_closest_bar(bars_list, longitude, latitude)))
