@@ -15,7 +15,7 @@ https://devman.org/media/filer_public/95/74/957441dc-78df-4c99-83b2-e93dfd13c2fa
 
 Запуск на Linux:
 
-```#!bash
+```bash
 
 $ python bars.py [путь до файла с данными] 
 ```
